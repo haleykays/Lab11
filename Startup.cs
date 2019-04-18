@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Lab11.Models; 
+using Microsoft.EntityFrameworkCore; 
 
 namespace Lab11
 {
@@ -31,7 +33,8 @@ namespace Lab11
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+ services.AddDbContext<ProfessorDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("ProfessorContext")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
