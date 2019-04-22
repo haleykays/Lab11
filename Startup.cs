@@ -35,6 +35,7 @@ namespace Lab11
 
  services.AddDbContext<ProfessorDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("ProfessorContext")));
+                
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
